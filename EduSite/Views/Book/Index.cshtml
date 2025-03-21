@@ -1,0 +1,242 @@
+@model IEnumerable<EduSite.Models.ViewModels.BookViewModel>
+
+@{
+    ViewData["Title"] = "Библиотека";
+}
+
+<div class="container py-5">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h1 class="display-4 fw-bold mb-4">Библиотека</h1>
+            <p class="lead text-muted">Найдите интересные книги для чтения и развития</p>
+        </div>
+        <div class="col-md-6">
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" class="form-control search-input" id="bookSearch" placeholder="Поиск книг...">
+                    <span class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="text-end mb-4">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Добавить книгу
+            </a>
+        </div>
+    }
+
+    <div class="no-results-message text-center py-5" style="display: none;">
+        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+        <h3>По вашему запросу ничего не найдено</h3>
+        <p class="text-muted">Попробуйте изменить параметры поиска</p>
+    </div>
+
+    <div id="booksContainer" class="row g-4">
+        @if (!Model.Any())
+        {
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-books fa-3x text-muted mb-3"></i>
+                <h3>Книги пока не добавлены</h3>
+                <p class="text-muted">Будьте первым, кто добавит книгу в библиотеку</p>
+            </div>
+        }
+        else
+        {
+            foreach (var book in Model)
+            {
+                <div class="col-md-6 col-lg-4 book-item">
+                    <div class="card h-100 book-card">
+                        <div class="book-image">
+                            <img src="@(string.IsNullOrEmpty(book.CoverImageUrl) ? "/images/default-book-cover.jpg" : book.CoverImageUrl)" 
+                                 alt="@book.Title" 
+                                 class="card-img-top"
+                                 style="height: 250px; object-fit: cover;"
+                                 onerror="this.src='/images/default-book-cover.jpg'">
+                            @if (!string.IsNullOrEmpty(book.Category))
+                            {
+                                <div class="category-badge">
+                                    <i class="fas fa-tag"></i> @book.Category
+                                </div>
+                            }
+                            @if (book.IsFree)
+                            {
+                                <div class="free-badge">
+                                    <i class="fas fa-gift"></i> Бесплатно
+                                </div>
+                            }
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">@book.Title</h5>
+                            <p class="card-text text-muted mb-2">
+                                <i class="fas fa-user"></i> @book.Author
+                            </p>
+                            <p class="card-text description">
+                                @(book.Description?.Length > 100 ? book.Description.Substring(0, 97) + "..." : book.Description)
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="book-stats">
+                                    <span class="me-3">
+                                        <i class="fas fa-download"></i> @book.DownloadCount
+                                    </span>
+                                    @if (!book.IsFree)
+                                    {
+                                        <span class="price">@book.Price.ToString("C0")</span>
+                                    }
+                                </div>
+                                <div class="book-actions">
+                                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-info-circle"></i> Подробнее
+                                    </a>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a href="@book.DownloadUrl" class="btn btn-primary btn-sm ms-2">
+                                            <i class="fas fa-download"></i> Скачать
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('bookSearch');
+            const booksContainer = document.getElementById('booksContainer');
+            const noResultsMessage = document.querySelector('.no-results-message');
+            const bookItems = document.querySelectorAll('.book-item');
+            
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                let visibleCount = 0;
+                
+                bookItems.forEach(item => {
+                    const title = item.querySelector('.card-title').textContent.toLowerCase();
+                    const author = item.querySelector('.card-text').textContent.toLowerCase();
+                    const description = item.querySelector('.description').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || 
+                        author.includes(searchTerm) || 
+                        description.includes(searchTerm)) {
+                        item.style.display = '';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+            });
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+        .book-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .free-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #28a745;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-stats {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #198754;
+        }
+
+        .search-box {
+            max-width: 100%;
+            margin-top: 1rem;
+        }
+
+        .search-input {
+            border-right: none;
+        }
+
+        .input-group-text {
+            background-color: white;
+            border-left: none;
+        }
+        
+        .description {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .book-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        @@media (max-width: 768px) {
+            .book-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .book-actions .btn {
+                width: 100%;
+                margin-left: 0 !important;
+            }
+        }
+    </style>
+}

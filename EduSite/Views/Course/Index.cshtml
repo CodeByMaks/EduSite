@@ -1,0 +1,289 @@
+@model IEnumerable<EduSite.Models.Course>
+
+@{
+    ViewData["Title"] = "Курсы";
+}
+
+<div class="courses-hero">
+    <img src="/images/courses-hero.svg" alt="" class="courses-hero-bg">
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold text-primary mb-4">Наши курсы</h1>
+                <p class="lead text-secondary mb-4">Выберите курс и начните свое обучение уже сегодня. Мы предлагаем широкий выбор курсов для развития ваших навыков.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="courses-filters mb-4">
+        <div class="row g-3">
+            <div class="col-md-9">
+                <div class="search-box">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg search-input" id="courseSearch" placeholder="Поиск курсов...">
+                        <span class="input-group-text bg-primary text-white">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="results-counter text-muted"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-results-message text-center py-5" style="display: none;">
+        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+        <h3>По вашему запросу ничего не найдено</h3>
+        <p class="text-muted">Попробуйте изменить параметры поиска</p>
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="text-end mb-4">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="fas fa-plus"></i> Добавить курс
+            </a>
+        </div>
+    }
+
+    <div id="coursesContainer" class="row">
+        @if (!Model.Any())
+        {
+            <div class="no-results-message text-center py-5">
+                <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                <h3>По вашему запросу ничего не найдено</h3>
+                <p class="text-muted">Попробуйте изменить параметры поиска</p>
+            </div>
+        }
+        else
+        {
+            @foreach (var course in Model)
+            {
+                <div class="col-md-6 col-lg-4 course-item">
+                    <div class="course-card h-100">
+                        <div class="course-image">
+                            <img src="@(string.IsNullOrEmpty(course.ImageUrl) ? "/images/courses-hero.svg" : course.ImageUrl)" 
+                                 alt="@course.Title" 
+                                 class="img-fluid"
+                                 onerror="this.src='/images/courses-hero.svg'">
+                            <div class="course-overlay">
+                                <a asp-action="Details" asp-route-id="@course.Id" class="btn btn-light">
+                                    <i class="fas fa-info-circle"></i> Подробнее
+                                </a>
+                            </div>
+                            <div class="course-category">
+                                <i class="fas fa-tag"></i> @course.Category
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h3 class="course-title title">@course.Title</h3>
+                            <div class="course-author">
+                                <i class="fas fa-user"></i> @course.Author
+                            </div>
+                            <p class="course-description">@(course.Description?.Length > 100 ? course.Description.Substring(0, 97) + "..." : course.Description)</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> @course.Duration</span>
+                                <span><i class="fas fa-signal"></i> @course.Difficulty</span>
+                                <span class="price"><i class="fas fa-tag"></i> @(course.Price > 0 ? $"{course.Price:C0}" : "Бесплатно")</span>
+                                <span class="downloads" style="display:none;">@(new Random().Next(10, 1000))</span>
+                                <span class="date" style="display:none;">@DateTime.Now.AddDays(-new Random().Next(1, 100)).ToString("O")</span>
+                            </div>
+                            <div class="course-footer">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <form asp-action="Enroll" asp-route-id="@course.Id" method="post">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-graduation-cap"></i> Записаться
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-sign-in-alt"></i> Войти для записи
+                                    </a>
+                                }
+                                <a asp-action="Details" asp-route-id="@course.Id" class="btn btn-outline-success btn-sm">
+                                    <i class="fas fa-eye"></i> Подробнее
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .courses-hero {
+            position: relative;
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            padding: 80px 0;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .courses-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .course-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .course-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .course-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card:hover .course-overlay {
+            opacity: 1;
+        }
+
+        .course-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1976D2;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+            font-weight: 600;
+        }
+
+        .course-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .course-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .course-info i {
+            color: #1976D2;
+            margin-right: 5px;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .course-price .badge {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-box .input-group {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .search-box .form-control {
+            border: none;
+            padding: 1.5rem;
+        }
+
+        .search-box .btn {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        @@media (max-width: 768px) {
+            .courses-hero {
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .course-info {
+                justify-content: center;
+            }
+
+            .course-footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="~/js/search.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Инициализация поиска
+            initializeSearch('courseSearch');
+        });
+    </script>
+}

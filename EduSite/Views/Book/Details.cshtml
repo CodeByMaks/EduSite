@@ -1,0 +1,99 @@
+@model EduSite.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            @if (!string.IsNullOrEmpty(Model.CoverImagePath))
+            {
+                <img src="@Model.CoverImagePath" class="img-fluid rounded" alt="Book Cover" />
+            }
+            else
+            {
+                <div class="text-center p-4 bg-light rounded">
+                    <i class="bi bi-book" style="font-size: 8rem;"></i>
+                </div>
+            }
+        </div>
+        <div class="col-md-8">
+            <h1>@Model.Title</h1>
+            <h4 class="text-muted">by @Model.Author</h4>
+
+            <div class="mt-4">
+                <h5>Description</h5>
+                <p>@Model.Description</p>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">ISBN</dt>
+                        <dd class="col-sm-8">@Model.ISBN</dd>
+
+                        <dt class="col-sm-4">Pages</dt>
+                        <dd class="col-sm-8">@Model.PageCount</dd>
+
+                        <dt class="col-sm-4">Language</dt>
+                        <dd class="col-sm-8">@Model.Language</dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">Publisher</dt>
+                        <dd class="col-sm-8">@Model.Publisher</dd>
+
+                        <dt class="col-sm-4">Added</dt>
+                        <dd class="col-sm-8">@Model.DateAdded.ToString("d")</dd>
+
+                        <dt class="col-sm-4">Downloads</dt>
+                        <dd class="col-sm-8">@Model.DownloadCount</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                @if (Model.IsFree)
+                {
+                    <div class="alert alert-success">
+                        <i class="bi bi-gift"></i> This book is free!
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        <i class="bi bi-tag"></i> Price: $@Model.Price
+                    </div>
+                }
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Download" asp-route-id="@Model.Id" class="btn btn-primary">
+                        <i class="bi bi-download"></i> Download Book
+                    </a>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        Please <a asp-controller="Account" asp-action="Login">login</a> to download this book.
+                    </div>
+                }
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Delete Book
+                    </a>
+                }
+            </div>
+
+            <div class="mt-4">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Library
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

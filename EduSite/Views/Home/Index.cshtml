@@ -1,0 +1,152 @@
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="hero-section animate__animated animate__fadeIn">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold text-primary mb-4">Добро пожаловать в мир знаний</h1>
+                <p class="lead mb-4 text-secondary">
+                    Откройте для себя новые возможности с нашими онлайн-курсами и обширной библиотекой учебных материалов.
+                    Начните свой путь к успеху прямо сейчас!
+                </p>
+                <div class="d-flex gap-3">
+                    <a asp-controller="Course" asp-action="Index" class="btn btn-primary btn-lg shadow-sm">
+                        <i class="fas fa-graduation-cap me-2"></i>Начать обучение
+                    </a>
+                    <a asp-controller="Book" asp-action="Index" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-book me-2"></i>Библиотека
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hero-image-wrapper">
+                    <img src="/images/education-hero.svg" alt="Образование" class="img-fluid animate__animated animate__fadeInRight">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section py-5 bg-light position-relative">
+    <div class="features-bg">
+        <img src="/images/features-bg.svg" alt="" class="w-100">
+    </div>
+    <div class="container position-relative">
+        <h2 class="text-center mb-5 fw-bold">Почему выбирают нас</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card bg-white p-4 rounded-lg shadow-sm h-100">
+                    <div class="icon-wrapper text-primary mb-3">
+                        <i class="fas fa-laptop-code fa-2x"></i>
+                    </div>
+                    <h3 class="h4 mb-3">Современное обучение</h3>
+                    <p class="text-muted mb-0">Актуальные курсы и материалы, разработанные экспертами индустрии</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card bg-white p-4 rounded-lg shadow-sm h-100">
+                    <div class="icon-wrapper text-primary mb-3">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                    <h3 class="h4 mb-3">Учитесь в своем темпе</h3>
+                    <p class="text-muted mb-0">Гибкий график обучения и круглосуточный доступ к материалам</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card bg-white p-4 rounded-lg shadow-sm h-100">
+                    <div class="icon-wrapper text-primary mb-3">
+                        <i class="fas fa-certificate fa-2x"></i>
+                    </div>
+                    <h3 class="h4 mb-3">Сертификация</h3>
+                    <p class="text-muted mb-0">Получите сертификат о прохождении курса и подтвердите свои навыки</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="stats-section py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="display-4 fw-bold text-primary mb-2">100+</div>
+                    <p class="text-muted mb-0">Онлайн курсов</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="display-4 fw-bold text-primary mb-2">5000+</div>
+                    <p class="text-muted mb-0">Довольных студентов</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="display-4 fw-bold text-primary mb-2">1000+</div>
+                    <p class="text-muted mb-0">Книг в библиотеке</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 0 0 50px 50px;
+    margin-top: -24px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-wrapper i {
+    font-size: 30px;
+    color: #0056b3;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.feature-card p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-weight: 500;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+</style>

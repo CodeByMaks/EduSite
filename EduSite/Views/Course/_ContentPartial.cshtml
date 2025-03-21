@@ -1,0 +1,35 @@
+@model EduSite.Models.ModuleContent
+
+<h3>@Model.Title</h3>
+<div class="content-box p-3 border rounded">
+    @if (!string.IsNullOrEmpty(Model.TextContent))
+    {
+        <div class="text-content">
+            @Html.Raw(Model.TextContent)
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.ContentUrl))
+    {
+        <div class="media-content mt-3">
+            @if (Model.ContentType == "Video")
+            {
+                <div class="ratio ratio-16x9">
+                    <iframe src="@Model.ContentUrl" 
+                            allowfullscreen></iframe>
+                </div>
+            }
+            else if (Model.ContentType == "Image")
+            {
+                <img src="@Model.ContentUrl" 
+                     class="img-fluid" 
+                     alt="Content Image">
+            }
+        </div>
+    }
+</div>
+
+<div class="mt-4 text-end">
+    <button class="btn btn-success" onclick="markAsCompleted(@Model.Id)">
+        Mark as Completed
+    </button>
+</div>

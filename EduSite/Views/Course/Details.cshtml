@@ -1,0 +1,145 @@
+@using System.Security.Claims
+@model EduSite.Models.Course
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container mt-4">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Title">
+                }
+                <div class="card-body">
+                    <h1 class="card-title">@Model.Title</h1>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="badge bg-primary me-2">@Model.Difficulty</span>
+                            <span class="text-muted">@Model.Duration</span>
+                        </div>
+                        @if (Model.IsFree)
+                        {
+                            <span class="badge bg-success">Free</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-info">$@Model.Price.ToString("0.00")</span>
+                        }
+                    </div>
+                    <p class="card-text">@Model.Description</p>
+                    <div class="mb-4">
+                        <h5>Course Details</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>Author:</strong> @Model.Author</li>
+                            <li><strong>Duration:</strong> @Model.Duration</li>
+                            <li><strong>Difficulty Level:</strong> @Model.Difficulty</li>
+                            <li><strong>Category:</strong> @Model.Category</li>
+                        </ul>
+                    </div>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (!Model.IsFree)
+                        {
+                            var userHasPurchased = Model.EnrolledUsers.Any(uc => uc.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+                            
+                            @if (!userHasPurchased)
+                            {
+                                <button id="purchase-btn-@Model.Id" class="btn btn-primary mb-2" onclick="purchaseCourse(@Model.Id)">
+                                    Купить за $@Model.Price.ToString("0.00")
+                                </button>
+                            }
+                            
+                            <button id="download-btn-@Model.Id" class="btn btn-success mb-2 @(!userHasPurchased ? "d-none" : "")" 
+                                    onclick="downloadCourse(@Model.Id)">
+                                Скачать материалы
+                            </button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-success mb-2" onclick="downloadCourse(@Model.Id)">
+                                Скачать материалы
+                            </button>
+                        }
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Войдите для доступа к курсу</a>
+                    }
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (ViewBag.IsEnrolled)
+                            {
+                                <a asp-action="Learn" asp-route-id="@Model.Id" class="btn btn-success">Continue Learning</a>
+                            }
+                            else
+                            {
+                                <form asp-action="Enroll" asp-route-id="@Model.Id" method="post">
+                                    @if (Model.IsFree)
+                                    {
+                                        <button type="submit" class="btn btn-primary">Enroll Now</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-primary">Purchase for $@Model.Price.ToString("0.00")</button>
+                                    }
+                                </form>
+                            }
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Course Modules</h5>
+                    @if (Model.Modules != null && Model.Modules.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var module in Model.Modules.OrderBy(m => m.Order))
+                            {
+                                <div class="list-group-item">
+                                    <h6 class="mb-1">@module.Title</h6>
+                                    <small class="text-muted">@module.Contents?.Count() contents</small>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No modules available yet.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="400px" viewBox="0 0 1440 400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F8F9FA" x="0" y="0" width="1440" height="400"/>
+        <path d="M0,150 C240,200 480,100 720,150 C960,200 1200,100 1440,150 L1440,400 L0,400 Z" fill="#E8F5E9"/>
+        <g transform="translate(100, 50)">
+            <!-- Bookshelf -->
+            <rect x="0" y="200" width="600" height="20" fill="#4CAF50"/>
+            <rect x="20" y="80" width="40" height="120" fill="#81C784"/>
+            <rect x="70" y="60" width="40" height="140" fill="#66BB6A"/>
+            <rect x="120" y="100" width="40" height="100" fill="#4CAF50"/>
+            <rect x="170" y="70" width="40" height="130" fill="#81C784"/>
+            <rect x="220" y="90" width="40" height="110" fill="#66BB6A"/>
+            <rect x="270" y="50" width="40" height="150" fill="#4CAF50"/>
+            <rect x="320" y="80" width="40" height="120" fill="#81C784"/>
+            <rect x="370" y="70" width="40" height="130" fill="#66BB6A"/>
+            <rect x="420" y="60" width="40" height="140" fill="#4CAF50"/>
+            <rect x="470" y="90" width="40" height="110" fill="#81C784"/>
+            <rect x="520" y="75" width="40" height="125" fill="#66BB6A"/>
+        </g>
+    </g>
+</svg>

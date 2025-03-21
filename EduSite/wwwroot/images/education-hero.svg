@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F8F9FA" x="0" y="0" width="800" height="600"/>
+        <g transform="translate(100, 100)">
+            <!-- Laptop -->
+            <rect fill="#4A90E2" x="150" y="200" width="400" height="250" rx="20"/>
+            <rect fill="#2C3E50" x="180" y="220" width="340" height="200"/>
+            <circle fill="#FFFFFF" cx="350" cy="440" r="10"/>
+            
+            <!-- Books Stack -->
+            <rect fill="#E74C3C" x="50" y="300" width="80" height="150" rx="5"/>
+            <rect fill="#F1C40F" x="45" y="280" width="80" height="20"/>
+            <rect fill="#2ECC71" x="55" y="260" width="80" height="20"/>
+            
+            <!-- Graduation Cap -->
+            <path d="M600,150 L650,180 L600,210 L550,180 Z" fill="#34495E"/>
+            <rect fill="#34495E" x="595" y="180" width="10" height="60"/>
+            <circle fill="#ECF0F1" cx="600" cy="240" r="15"/>
+        </g>
+    </g>
+</svg>

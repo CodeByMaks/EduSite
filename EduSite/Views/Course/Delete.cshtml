@@ -1,0 +1,48 @@
+@model EduSite.Models.Course
+
+@{
+    ViewData["Title"] = "Delete Course";
+}
+
+<div class="container mt-4">
+    <h2>Delete Course</h2>
+    <div class="alert alert-danger">
+        <h4>Are you sure you want to delete this course?</h4>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Title</h4>
+            <p class="card-text">@Model.Description</p>
+            
+            <dl class="row">
+                <dt class="col-sm-3">Author</dt>
+                <dd class="col-sm-9">@Model.Author</dd>
+
+                <dt class="col-sm-3">Duration</dt>
+                <dd class="col-sm-9">@Model.Duration</dd>
+
+                <dt class="col-sm-3">Difficulty</dt>
+                <dd class="col-sm-9">@Model.Difficulty</dd>
+
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-9">
+                    @if (Model.IsFree)
+                    {
+                        <span>Free</span>
+                    }
+                    else
+                    {
+                        <span>$@Model.Price.ToString("F2")</span>
+                    }
+                </dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>

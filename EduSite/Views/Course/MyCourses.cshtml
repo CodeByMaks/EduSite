@@ -1,0 +1,121 @@
+@model IEnumerable<EduSite.Models.UserCourse>
+
+@{
+    ViewData["Title"] = "Мои курсы";
+}
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">Мои курсы</h2>
+                <a href="@Url.Action("Index", "Course")" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Найти новые курсы
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+            @foreach (var enrollment in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm hover-shadow">
+                        <div class="position-relative">
+                            @if (!string.IsNullOrEmpty(enrollment.Course.ImageUrl))
+                            {
+                                <img src="@enrollment.Course.ImageUrl" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@enrollment.Course.Title">
+                            }
+                            else
+                            {
+                                <div class="bg-light" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-book fa-3x text-muted"></i>
+                                </div>
+                            }
+                            <div class="position-absolute top-0 end-0 m-2">
+                                @if (enrollment.Course.IsFree)
+                                {
+                                    <span class="badge bg-success">Бесплатно</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-primary">$@enrollment.Course.Price</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@enrollment.Course.Title</h5>
+                            <p class="card-text text-muted mb-2">
+                                <i class="fas fa-user-graduate"></i> @enrollment.Course.Author
+                            </p>
+                            <p class="card-text text-muted mb-2">
+                                <i class="fas fa-layer-group"></i> @enrollment.Course.Category
+                            </p>
+                            <div class="progress mt-3 mb-2" style="height: 10px;">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                     style="width: @enrollment.Progress%; transition: width 0.5s ease;" 
+                                     aria-valuenow="@enrollment.Progress" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                            <p class="text-center mb-3">Прогресс: @enrollment.Progress%</p>
+
+                            <div class="d-flex flex-column">
+                                <a href="@Url.Action("Details", "Course", new { id = enrollment.CourseId })" 
+                                   class="btn btn-primary mb-2">
+                                    <i class="fas fa-play-circle"></i> Продолжить обучение
+                                </a>
+                                
+                                <form asp-action="Unenroll" asp-route-id="@enrollment.CourseId" method="post" 
+                                      onsubmit="return confirm('Вы уверены, что хотите отписаться от этого курса?');">
+                                    <button type="submit" class="btn btn-outline-danger w-100">
+                                        <i class="fas fa-times-circle"></i> Отписаться
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">
+                                <i class="fas fa-clock"></i> Записан(а) @enrollment.EnrollmentDate.ToString("dd.MM.yyyy")
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center py-5">
+            <i class="fas fa-graduation-cap fa-4x text-muted mb-3"></i>
+            <h3>У вас пока нет курсов</h3>
+            <p class="text-muted">Начните свое обучение прямо сейчас!</p>
+            <a asp-controller="Course" asp-action="Index" class="btn btn-primary btn-lg mt-3">
+                <i class="fas fa-search"></i> Найти курсы
+            </a>
+        </div>
+    }
+</div>
+
+@section Styles {
+    <style>
+        .hover-shadow {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            border-radius: 20px;
+        }
+        .progress-bar {
+            border-radius: 20px;
+        }
+    </style>
+}

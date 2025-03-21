@@ -1,0 +1,145 @@
+@model EduSite.Models.Course
+
+@{
+    ViewData["Title"] = Model.Title;
+    var random = new Random();
+    var randomTip = new[] {
+        "Take breaks every 25 minutes to maintain focus",
+        "Try explaining the concept to someone else",
+        "Practice makes perfect",
+        "Write down key points",
+        "Review previous material regularly"
+    }[random.Next(5)];
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Course Content Navigation -->
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Course Content</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    @foreach (var module in Model.Modules.OrderBy(m => random.Next()))
+                    {
+                        <div class="list-group-item">
+                            <h6 class="mb-2">@module.Title</h6>
+                            @foreach (var content in module.Contents.OrderBy(c => random.Next()))
+                            {
+                                <a href="#content-@content.Id" 
+                                   class="nav-link ps-3 py-1 @(ViewBag.CurrentContentId == content.Id ? "active" : "")"
+                                   onclick="loadContent(@content.Id)">
+                                    @content.Title
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Study Tip Card -->
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Study Tip</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@randomTip</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="card-title mb-0">@Model.Title</h2>
+                </div>
+                <div class="card-body">
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: @ViewBag.Progress%" 
+                             aria-valuenow="@ViewBag.Progress" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            @ViewBag.Progress%
+                        </div>
+                    </div>
+
+                    <div id="content-area" class="mt-4">
+                        @if (ViewBag.CurrentContent != null)
+                        {
+                            <h3>@ViewBag.CurrentContent.Title</h3>
+                            <div class="content-box p-3 border rounded">
+                                @if (!string.IsNullOrEmpty(ViewBag.CurrentContent.TextContent))
+                                {
+                                    <div class="text-content">
+                                        @Html.Raw(ViewBag.CurrentContent.TextContent)
+                                    </div>
+                                }
+                                @if (!string.IsNullOrEmpty(ViewBag.CurrentContent.ContentUrl))
+                                {
+                                    <div class="media-content mt-3">
+                                        @if (ViewBag.CurrentContent.ContentType == "Video")
+                                        {
+                                            <div class="ratio ratio-16x9">
+                                                <iframe src="@ViewBag.CurrentContent.ContentUrl" 
+                                                        allowfullscreen></iframe>
+                                            </div>
+                                        }
+                                        else if (ViewBag.CurrentContent.ContentType == "Image")
+                                        {
+                                            <img src="@ViewBag.CurrentContent.ContentUrl" 
+                                                 class="img-fluid" 
+                                                 alt="Content Image">
+                                        }
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="mt-4 text-end">
+                                <button class="btn btn-success" onclick="markAsCompleted(@ViewBag.CurrentContent.Id)">
+                                    Mark as Completed
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center py-5">
+                                <h3>Welcome to @Model.Title!</h3>
+                                <p class="lead">Select a topic from the menu to start learning.</p>
+                                <div class="mt-4">
+                                    <img src="/images/study.svg" alt="Study illustration" class="img-fluid" style="max-width: 300px;">
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function loadContent(contentId) {
+            $.get(`/Course/GetContent/${contentId}`, function(response) {
+                $("#content-area").html(response);
+            });
+        }
+
+        function markAsCompleted(contentId) {
+            $.post(`/Course/MarkContentAsCompleted/${contentId}`, function(response) {
+                if (response.success) {
+                    // Update progress bar
+                    const progress = response.progress;
+                    $(".progress-bar").css("width", `${progress}%`).text(`${progress}%`);
+                    
+                    // Visual feedback
+                    $(`a[href="#content-${contentId}"]`).addClass("text-success");
+                    toastr.success("Progress saved!");
+                }
+            });
+        }
+    </script>
+}

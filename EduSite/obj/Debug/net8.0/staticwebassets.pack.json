@@ -1,0 +1,377 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\EduSite.bundle.scp.css",
+      "PackagePath": "staticwebassets\\EduSite.mjqu7fztll.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\about-education.svg",
+      "PackagePath": "staticwebassets\\images\\about-education.svg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses-hero.svg",
+      "PackagePath": "staticwebassets\\images\\courses-hero.svg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\90630afc-1f48-462d-9e75-b23204086110_Coler_aktiv.png",
+      "PackagePath": "staticwebassets\\images\\courses\\90630afc-1f48-462d-9e75-b23204086110_Coler_aktiv.png"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\dgdq8br-09cc7ad6-a021-47a5-b0e0-917b12b0f7a7_068c51ea.gif",
+      "PackagePath": "staticwebassets\\images\\courses\\dgdq8br-09cc7ad6-a021-47a5-b0e0-917b12b0f7a7_068c51ea.gif"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\dreamers-path-noch-pole-fentezi-art-portal-iunosha-skaty-fon_f971edcf.jpg",
+      "PackagePath": "staticwebassets\\images\\courses\\dreamers-path-noch-pole-fentezi-art-portal-iunosha-skaty-fon_f971edcf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\e1fe86ae64aafd121ae8c0b79106cedc_638718423097899685.jpg",
+      "PackagePath": "staticwebassets\\images\\courses\\e1fe86ae64aafd121ae8c0b79106cedc_638718423097899685.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\e6ef8fbc-b966-4b3b-b1eb-e78b48fa1d97_Coler_aktiv.png",
+      "PackagePath": "staticwebassets\\images\\courses\\e6ef8fbc-b966-4b3b-b1eb-e78b48fa1d97_Coler_aktiv.png"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\Снимок экрана 2024-12-22 102108_636193f7.png",
+      "PackagePath": "staticwebassets\\images\\courses\\Снимок экрана 2024-12-22 102108_636193f7.png"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\courses\\Снимок экрана 2024-12-27 005159_5b527c58.png",
+      "PackagePath": "staticwebassets\\images\\courses\\Снимок экрана 2024-12-27 005159_5b527c58.png"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\education-hero.svg",
+      "PackagePath": "staticwebassets\\images\\education-hero.svg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\features-bg.svg",
+      "PackagePath": "staticwebassets\\images\\features-bg.svg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\images\\library-hero.svg",
+      "PackagePath": "staticwebassets\\images\\library-hero.svg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\js\\filters.js",
+      "PackagePath": "staticwebassets\\js\\filters.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\js\\purchase.js",
+      "PackagePath": "staticwebassets\\js\\purchase.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\js\\search.js",
+      "PackagePath": "staticwebassets\\js\\search.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\books\\2344d4fb-4791-4f27-8f84-3769656353f6_Цифровое пиратство_271119143710.pdf",
+      "PackagePath": "staticwebassets\\uploads\\books\\2344d4fb-4791-4f27-8f84-3769656353f6_Цифровое пиратство_271119143710.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\books\\5678f0db-4708-4b56-918c-358e529210a1_Курсовой проект.docx",
+      "PackagePath": "staticwebassets\\uploads\\books\\5678f0db-4708-4b56-918c-358e529210a1_Курсовой проект.docx"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\books\\MAskda_638717761924655755.docx",
+      "PackagePath": "staticwebassets\\uploads\\books\\MAskda_638717761924655755.docx"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\books\\cec18c36-362b-4762-8d43-9d37a5a8a56b_Типизированный_Python_для_профессиональной_разработки_2022_Алексей.pdf",
+      "PackagePath": "staticwebassets\\uploads\\books\\cec18c36-362b-4762-8d43-9d37a5a8a56b_Типизированный_Python_для_профессиональной_разработки_2022_Алексей.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\books\\ef09d23d-e45b-499c-9bba-db21584a8c48_#newDate()day2CT.pdf",
+      "PackagePath": "staticwebassets\\uploads\\books\\ef09d23d-e45b-499c-9bba-db21584a8c48_#newDate()day2CT.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\books\\База_638718425159754317.docx",
+      "PackagePath": "staticwebassets\\uploads\\books\\База_638718425159754317.docx"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\covers\\58e4b3bc-6367-4edf-80df-e60c5969a46a_e1fe86ae64aafd121ae8c0b79106cedc.jpg",
+      "PackagePath": "staticwebassets\\uploads\\covers\\58e4b3bc-6367-4edf-80df-e60c5969a46a_e1fe86ae64aafd121ae8c0b79106cedc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\covers\\615baa98-cbe3-4e88-accb-6e117b5de08f_dreamers-path-noch-pole-fentezi-art-portal-iunosha-skaty-fon.jpg",
+      "PackagePath": "staticwebassets\\uploads\\covers\\615baa98-cbe3-4e88-accb-6e117b5de08f_dreamers-path-noch-pole-fentezi-art-portal-iunosha-skaty-fon.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\covers\\74c9ebca-8172-453e-aa5e-a648e72dec19_e1fe86ae64aafd121ae8c0b79106cedc.jpg",
+      "PackagePath": "staticwebassets\\uploads\\covers\\74c9ebca-8172-453e-aa5e-a648e72dec19_e1fe86ae64aafd121ae8c0b79106cedc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\covers\\Coler_aktiv_638717761924756715.png",
+      "PackagePath": "staticwebassets\\uploads\\covers\\Coler_aktiv_638717761924756715.png"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\covers\\Coler_aktiv_638718425159790762.png",
+      "PackagePath": "staticwebassets\\uploads\\covers\\Coler_aktiv_638718425159790762.png"
+    },
+    {
+      "Id": "C:\\Users\\Администратор\\CascadeProjects\\EduSite\\EduSite\\wwwroot\\uploads\\covers\\e4004b8c-5308-4bdc-b1a5-5afce45ab224_dreamers-path-noch-pole-fentezi-art-portal-iunosha-skaty-fon.jpg",
+      "PackagePath": "staticwebassets\\uploads\\covers\\e4004b8c-5308-4bdc-b1a5-5afce45ab224_dreamers-path-noch-pole-fentezi-art-portal-iunosha-skaty-fon.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EduSite.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EduSite.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.EduSite.props",
+      "PackagePath": "build\\EduSite.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.EduSite.props",
+      "PackagePath": "buildMultiTargeting\\EduSite.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.EduSite.props",
+      "PackagePath": "buildTransitive\\EduSite.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

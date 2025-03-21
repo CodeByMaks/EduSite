@@ -1,0 +1,62 @@
+@model EduSite.Models.Book
+
+@{
+    ViewData["Title"] = "Delete Book";
+}
+
+<div class="container mt-4">
+    <h1>Delete Book</h1>
+    <div class="alert alert-danger mt-4">
+        <h4>Are you sure you want to delete this book?</h4>
+        <p>This action cannot be undone.</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                @if (!string.IsNullOrEmpty(Model.CoverImagePath))
+                {
+                    <img src="@Model.CoverImagePath" class="card-img-top" alt="@Model.Title">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">by @Model.Author</h6>
+                    <p class="card-text">@Model.Description</p>
+
+                    <dl class="row">
+                        <dt class="col-sm-4">ISBN</dt>
+                        <dd class="col-sm-8">@Model.ISBN</dd>
+
+                        <dt class="col-sm-4">Publisher</dt>
+                        <dd class="col-sm-8">@Model.Publisher</dd>
+
+                        <dt class="col-sm-4">Language</dt>
+                        <dd class="col-sm-8">@Model.Language</dd>
+
+                        <dt class="col-sm-4">Pages</dt>
+                        <dd class="col-sm-8">@Model.PageCount</dd>
+
+                        <dt class="col-sm-4">Price</dt>
+                        <dd class="col-sm-8">$@Model.Price.ToString("F2")</dd>
+
+                        <dt class="col-sm-4">Downloads</dt>
+                        <dd class="col-sm-8">@Model.DownloadCount</dd>
+
+                        <dt class="col-sm-4">Added</dt>
+                        <dd class="col-sm-8">@Model.DateAdded.ToString("d")</dd>
+                    </dl>
+
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger me-2">
+                            <i class="bi bi-trash me-2"></i>Delete
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Back to List
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

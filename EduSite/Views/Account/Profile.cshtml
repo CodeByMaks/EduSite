@@ -1,0 +1,245 @@
+@model EduSite.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Профиль";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <div class="avatar-circle">
+                            <span class="avatar-initials">@(Model.FirstName[0])@(Model.LastName[0])</span>
+                        </div>
+                    </div>
+                    <h4 class="card-title">@Model.FirstName @Model.LastName</h4>
+                    <p class="card-text text-muted">
+                        <i class="fas fa-envelope"></i> @Model.Email
+                    </p>
+                    <p class="card-text text-muted">
+                        <i class="fas fa-calendar-alt"></i> С нами с @Model.DateJoined.ToString("dd.MM.yyyy")
+                    </p>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="badge bg-primary mb-2">Администратор</div>
+                    }
+                    else
+                    {
+                        <div class="badge bg-info mb-2">Пользователь</div>
+                    }
+                </div>
+            </div>
+
+            @if (User.IsInRole("User"))
+            {
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Статистика обучения</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Пройденные курсы</span>
+                            <span class="badge bg-success">@Model.EnrolledCourses?.Count(c => c.Progress == 100) ?? 0</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>В процессе</span>
+                            <span class="badge bg-warning">@Model.EnrolledCourses?.Count(c => c.Progress > 0 && c.Progress < 100) ?? 0</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Не начатые</span>
+                            <span class="badge bg-secondary">@Model.EnrolledCourses?.Count(c => c.Progress == 0) ?? 0</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-user-edit"></i> Редактировать профиль
+                    </h5>
+                    <form id="profileForm" asp-action="UpdateProfile" method="post">
+                        <div class="mb-3">
+                            <label asp-for="FirstName" class="form-label">Имя</label>
+                            <input asp-for="FirstName" class="form-control" id="firstName" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LastName" class="form-label">Фамилия</label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Обновить профиль
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-key"></i> Изменить пароль
+                    </h5>
+                    <form asp-action="ChangePassword" method="post">
+                        <div class="mb-3">
+                            <label for="CurrentPassword" class="form-label">Текущий пароль</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="CurrentPassword" name="CurrentPassword" required />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('CurrentPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="NewPassword" class="form-label">Новый пароль</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="NewPassword" name="NewPassword" required />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('NewPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ConfirmPassword" class="form-label">Подтвердите новый пароль</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('ConfirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-key"></i> Изменить пароль
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (User.IsInRole("User"))
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-graduation-cap"></i> Мои курсы
+                        </h5>
+                        @if (Model.EnrolledCourses != null && Model.EnrolledCourses.Any())
+                        {
+                            <div class="row">
+                                @foreach (var enrollment in Model.EnrolledCourses)
+                                {
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100 hover-shadow">
+                                            <div class="card-body">
+                                                <h5 class="card-title">@enrollment.Course.Title</h5>
+                                                <p class="card-text text-muted mb-2">
+                                                    <i class="fas fa-user-graduate"></i> @enrollment.Course.Author
+                                                </p>
+                                                <div class="progress mb-2" style="height: 10px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" 
+                                                         style="width: @enrollment.Progress%; transition: width 0.5s ease;"
+                                                         aria-valuenow="@enrollment.Progress" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                                <p class="text-center mb-3">Прогресс: @enrollment.Progress%</p>
+                                                <p class="card-text">
+                                                    <small class="text-muted">
+                                                        <i class="fas fa-clock"></i> Записан(а) @enrollment.EnrollmentDate.ToString("dd.MM.yyyy")
+                                                    </small>
+                                                </p>
+                                                <a href="@Url.Action("Details", "Course", new { id = enrollment.CourseId })" 
+                                                   class="btn btn-primary w-100">
+                                                    <i class="fas fa-play-circle"></i> Продолжить обучение
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center py-4">
+                                <i class="fas fa-book fa-3x text-muted mb-3"></i>
+                                <h5>У вас пока нет курсов</h5>
+                                <p class="text-muted">Начните свое обучение прямо сейчас!</p>
+                                <a asp-controller="Course" asp-action="Index" class="btn btn-primary">
+                                    <i class="fas fa-search"></i> Найти курсы
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Styles {
+    <style>
+        .avatar-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .avatar-initials {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .hover-shadow {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        }
+
+        .progress {
+            border-radius: 20px;
+        }
+
+        .progress-bar {
+            border-radius: 20px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function togglePassword(inputId) {
+            var input = document.getElementById(inputId);
+            var icon = event.currentTarget.querySelector('i');
+            
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+}
